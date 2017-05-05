@@ -20,6 +20,7 @@ namespace SpeedBall
          private Random random;
          Timer timer;
          Timer timerMove;
+        Timer ColorTimer;
          Forms forms = new Forms();
 
 
@@ -31,10 +32,13 @@ namespace SpeedBall
 
           
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
-           
-            
 
 
+
+            ColorTimer = new Timer();
+            ColorTimer.Interval = 10000;
+            ColorTimer.Tick += ColorTimer_tick;
+            ColorTimer.Start();
 
             timer = new Timer();
             timer.Interval = 3000;
@@ -46,6 +50,10 @@ namespace SpeedBall
             timerMove.Start();
         }
 
+        void ColorTimer_tick(object sender,EventArgs e)
+        {
+            topce.changeColor();
+        }
 
         void timerMove_Tick(object sender, EventArgs e)
         {
@@ -58,7 +66,7 @@ namespace SpeedBall
         void timer_Tick(object sender, EventArgs e)
         {
             random = new Random();
-            forms.addToForms(new Rectangle(RandNumber(0,415),RandNumber(30,100),RandNumber(30,100)));
+            forms.addToForms(new Rectangle(RandNumber(10,pbGameEngine.Width-10),RandNumber(30,100),RandNumber(30,100)));
             Invalidate();
         }
 
@@ -109,7 +117,10 @@ namespace SpeedBall
 
             return rnd;
         }
-    
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
