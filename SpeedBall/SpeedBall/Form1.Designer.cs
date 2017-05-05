@@ -61,6 +61,7 @@
             this.Controls.Add(this.pbGameEngine);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.pbGameEngine_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).EndInit();
             this.ResumeLayout(false);
 
