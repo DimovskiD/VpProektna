@@ -11,9 +11,11 @@ namespace SpeedBall
     {
         public int w { get; set; }
         public int h { get; set; }
-        public Rectangle(Point a,int width, int height)
+        public Rectangle(int c,int width, int height)
         {
-            this.A = a;
+        //    int x = c.Next(0,624);
+          //  Point a = new Point(x, 0);
+            this.A = new Point(c,0);
             w = width;
             h = height;
             

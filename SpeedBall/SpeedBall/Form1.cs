@@ -13,6 +13,7 @@ namespace SpeedBall
     public partial class Form1 : Form
     {
          private Ball topce;
+         private Random random;
          Timer timer;
          Timer timerMove;
          Forms forms = new Forms();
@@ -26,7 +27,7 @@ namespace SpeedBall
 
 
             timer = new Timer();
-            timer.Interval = 1000;
+            timer.Interval = 3000;
             timer.Tick += timer_Tick;
             timerMove = new Timer();
             timerMove.Interval = 100;
@@ -44,7 +45,8 @@ namespace SpeedBall
 
         void timer_Tick(object sender, EventArgs e)
         {
-            forms.addToForms(new Rectangle(new Point(0,0),30,50));
+            random = new Random();
+            forms.addToForms(new Rectangle(RandNumber(0,415),RandNumber(30,100),RandNumber(30,100)));
             Invalidate();
         }
 
@@ -56,6 +58,14 @@ namespace SpeedBall
             forms.Draw(e.Graphics);
         }
 
+        public static int RandNumber(int Low, int High)
+        {
+            Random rndNum = new Random(int.Parse(Guid.NewGuid().ToString().Substring(0, 8), System.Globalization.NumberStyles.HexNumber));
+
+            int rnd = rndNum.Next(Low, High);
+
+            return rnd;
+        }
     
     }
 }
