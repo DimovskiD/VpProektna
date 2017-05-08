@@ -13,16 +13,12 @@ namespace SpeedBall
     public partial class Form1 : Form
     {
 
-    
-        
-
          private Ball topce;
          private Random random;
          Timer timer;
          Timer timerMove;
-        Timer ColorTimer;
-         Forms forms = new Forms();
-
+         Timer ColorTimer;
+         private Forms forms;
 
 
         public Form1()
@@ -30,10 +26,11 @@ namespace SpeedBall
 
             InitializeComponent();
 
-          
+            this.DoubleBuffered = true;
+      
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
 
-
+            forms = new Forms(pbGameEngine.Height);
 
             ColorTimer = new Timer();
             ColorTimer.Interval = 10000;
@@ -55,9 +52,33 @@ namespace SpeedBall
             topce.changeColor();
         }
 
+
         void timerMove_Tick(object sender, EventArgs e)
         {
             forms.move();
+            Rectangle tmp = topce.checkCollisions(forms);
+            if (tmp != null)
+            {
+                ColorTimer.Stop();
+                ColorTimer.Tag = new Object();
+                if (tmp.cr.currentColor == topce.current) timerMove.Interval=forms.updateHighScore();
+                else
+                {
+                    timer.Stop();
+                    ColorTimer.Stop();
+                    timerMove.Stop();
+                    topce.flag = false; //koga se sluci sudir zapri gi site tajmeri i onevozmozi dvizenje na topceto
+                }
+            }
+            else
+            {
+                if (ColorTimer.Tag != null)
+                {
+                    ColorTimer.Tag = null;
+                    ColorTimer.Start();
+                }
+                
+            }
             Invalidate(true);
 
         }
@@ -66,7 +87,9 @@ namespace SpeedBall
         void timer_Tick(object sender, EventArgs e)
         {
             random = new Random();
-            forms.addToForms(new Rectangle(RandNumber(10,pbGameEngine.Width-10),RandNumber(30,100),RandNumber(30,100)));
+            int c= RandNumber(12,pbGameEngine.Width-100);
+          
+            forms.addToForms(new Rectangle(c,RandNumber(30,100),RandNumber(30,100)));
             Invalidate();
         }
 
@@ -77,7 +100,8 @@ namespace SpeedBall
 
             g.Clear(Color.White);
             topce.Draw(g);
- 	forms.Draw(e.Graphics);
+ 	        forms.Draw(e.Graphics);
+            
         }
 
        
@@ -121,6 +145,21 @@ namespace SpeedBall
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHighScore_Paint(object sender, PaintEventArgs e)
+        {
+            lblHighScore.Text = forms.highScore.ToString();
+        }
+
+        private void lblLevel_Paint(object sender, PaintEventArgs e)
+        {
+            lblLevel.Text = String.Format("Level {0}",forms.level.ToString());
         }
     }
 }

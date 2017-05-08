@@ -17,7 +17,7 @@ namespace SpeedBall
         {
         //    int x = c.Next(0,624);
           //  Point a = new Point(x, 0);
-            this.A = new Point(c,0);
+            this.A = new Point(c,12);
             w = width;
             h = height;
             b = new SolidBrush(Color.Green);
@@ -28,12 +28,8 @@ namespace SpeedBall
 
         public override void Draw(Graphics g)
         {
-            
-           
-            
             g.FillRectangle(b, A.X, A.Y, w, h);
             
-
         }
 
         public override void Move()
