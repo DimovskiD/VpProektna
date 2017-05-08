@@ -57,11 +57,20 @@ namespace SpeedBall
         {
             forms.move();
             Rectangle tmp = topce.checkCollisions(forms);
+            timerMove.Interval = forms.updateHighScore();
+            lblTick.Text = timerMove.Interval.ToString();
+            lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
             {
                 ColorTimer.Stop();
                 ColorTimer.Tag = new Object();
-                if (tmp.cr.currentColor == topce.current) timerMove.Interval=forms.updateHighScore();
+                
+                if (tmp.cr.currentColor == topce.current)
+                {
+                     forms.sameColor();
+                    forms.removeForm(tmp);
+                    
+                }
                 else
                 {
                     timer.Stop();
