@@ -14,7 +14,7 @@ namespace SpeedBall
         public int highScore { get; set; }
         private int h;
         public int level { get; set; }
-        private int limit;
+        public int limit { get; set; }
         private int tick;
         private double increment;
         public Forms(int height) {
@@ -23,12 +23,20 @@ namespace SpeedBall
             highScore = 0;
             level = 1;
             limit = 20;
-            tick = 3000;
+            tick = 100;
             increment = 1;
         }
 
         public void addToForms(Shape form) {
             forms.Add(form);
+        }
+        public void removeForm(Shape form)
+        {
+            for(int i=0;i<forms.Count;i++ )
+            {
+                if (form.Equals(forms[i]))
+                    forms.RemoveAt(i);
+            }
         }
 
         public void move()
@@ -39,7 +47,7 @@ namespace SpeedBall
                 if (forms[i].A.Y > h)
                 { 
                     forms.RemoveAt(i);
-                    updateHighScore();
+                    updatescore();
 
                 }
                 if (forms[i].A.Y + (forms[i] as Rectangle).h > h) (forms[i] as Rectangle).h -= 10;
@@ -52,28 +60,38 @@ namespace SpeedBall
                 form.Draw(g);
             }
         }
-
-
+    
+        internal void updatescore()
+        {
+            highScore += 1;
+        }
         internal int updateHighScore()
         {
-            highScore += level;
-            if (highScore % limit == 0)
+          //  highScore += 1;
+           if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
-                increment += 0.2;
+                tick = updateLevel();
+                increment += 1;
                 return tmp;
             }
 
             else return tick;
         }
 
+        public void  sameColor()
+        {
+            highScore += 2;
+        }
+
         public int updateLevel()
         {
             
                 //treba da se dosredi logikata na povisokite leveli
+                
                 level++;
                 limit = limit + (int)(limit / 2);
-                return tick - (int)(200*increment);
+                return tick - (int)(10*increment);
         }
     }
 }

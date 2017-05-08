@@ -33,6 +33,8 @@
             this.lblHighScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
+            this.lblTick = new System.Windows.Forms.Label();
+            this.lblLimit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +94,30 @@
             this.lblLevel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblLevel.Paint += new System.Windows.Forms.PaintEventHandler(this.lblLevel_Paint);
             // 
+            // lblTick
+            // 
+            this.lblTick.AutoSize = true;
+            this.lblTick.Location = new System.Drawing.Point(505, 214);
+            this.lblTick.Name = "lblTick";
+            this.lblTick.Size = new System.Drawing.Size(0, 13);
+            this.lblTick.TabIndex = 5;
+            // 
+            // lblLimit
+            // 
+            this.lblLimit.AutoSize = true;
+            this.lblLimit.Location = new System.Drawing.Point(469, 397);
+            this.lblLimit.Name = "lblLimit";
+            this.lblLimit.Size = new System.Drawing.Size(35, 13);
+            this.lblLimit.TabIndex = 6;
+            this.lblLimit.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 736);
+            this.Controls.Add(this.lblLimit);
+            this.Controls.Add(this.lblTick);
             this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHighScore);
@@ -119,6 +140,8 @@
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLevel;
+        private System.Windows.Forms.Label lblTick;
+        private System.Windows.Forms.Label lblLimit;
     }
 }
 
