@@ -57,7 +57,9 @@ namespace SpeedBall
         {
             forms.move();
             Rectangle tmp = topce.checkCollisions(forms);
+           
             timerMove.Interval = forms.updateHighScore();
+
             lblTick.Text = timerMove.Interval.ToString();
             lblLimit.Text = forms.limit.ToString();
             if (tmp != null)

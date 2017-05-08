@@ -71,7 +71,7 @@ namespace SpeedBall
            if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
-                tick = updateLevel();
+                tick = tmp;
                 increment += 1;
                 return tmp;
             }
