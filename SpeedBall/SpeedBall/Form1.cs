@@ -59,7 +59,14 @@ namespace SpeedBall
             Rectangle tmp = topce.checkCollisions(forms);
            
             timerMove.Interval = forms.updateHighScore();
-
+            //proverka dali topceto e vo dozvolena oblast
+            if(topce.checkLimits(pbGameEngine.Width))
+            {
+                timer.Stop();
+                ColorTimer.Stop();
+                timerMove.Stop();
+                topce.flag = false;
+            }
             lblTick.Text = timerMove.Interval.ToString();
             lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
@@ -69,8 +76,8 @@ namespace SpeedBall
                 
                 if (tmp.cr.currentColor == topce.current)
                 {
-                     forms.sameColor();
-                    forms.removeForm(tmp);
+                     forms.sameColor();//increment highscore +2
+                    forms.removeForm(tmp);//Clean same color rectange
                     
                 }
                 else
@@ -98,9 +105,9 @@ namespace SpeedBall
         void timer_Tick(object sender, EventArgs e)
         {
             random = new Random();
-            int c= RandNumber(12,pbGameEngine.Width-100);
-          
+            int c = RandNumber(12, pbGameEngine.Width - 100);
             forms.addToForms(new Rectangle(c,RandNumber(30,100),RandNumber(30,100)));
+           
             Invalidate();
         }
 
@@ -110,6 +117,10 @@ namespace SpeedBall
             Graphics g = e.Graphics;
 
             g.Clear(Color.White);
+            //krajni granici za topceto
+            Brush b = new SolidBrush(Color.Red);
+            g.FillRectangle(b, pbGameEngine.Width-10, pbGameEngine.Height - 80, 10, 90);
+            g.FillRectangle(b,pbGameEngine.Left, pbGameEngine.Height - 80, 10, 90); 
             topce.Draw(g);
  	        forms.Draw(e.Graphics);
             

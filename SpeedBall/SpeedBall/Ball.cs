@@ -80,6 +80,13 @@ namespace SpeedBall
            
 
         }
+        public bool checkLimits(int W)
+        {
+            if (X-40 < 1 || X+40 > W)
+                return true;
+            else
+                return false;
+        }
 
         
     }
