@@ -50,6 +50,7 @@ namespace SpeedBall
                     updatescore();
 
                 }
+                if(forms.Count!=0)
                 if (forms[i].A.Y + (forms[i] as Rectangle).h > h) (forms[i] as Rectangle).h -= 10;
             }
         }
@@ -71,6 +72,10 @@ namespace SpeedBall
            if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
+                if(tmp<=0)
+                {
+                    tmp = 25;
+                }
                 tick = tmp;
                 increment += 1;
                 return tmp;
