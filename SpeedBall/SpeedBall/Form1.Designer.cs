@@ -41,7 +41,7 @@
             // pbGameEngine
             // 
             this.pbGameEngine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbGameEngine.Location = new System.Drawing.Point(12, 12);
+            this.pbGameEngine.Location = new System.Drawing.Point(2, 13);
             this.pbGameEngine.Name = "pbGameEngine";
             this.pbGameEngine.Size = new System.Drawing.Size(415, 711);
             this.pbGameEngine.TabIndex = 0;
