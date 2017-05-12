@@ -19,7 +19,7 @@ namespace SpeedBall
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            StartPage form2 = new StartPage();
             form2.Show();
             this.Hide();
         }

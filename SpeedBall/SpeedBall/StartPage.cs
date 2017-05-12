@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace SpeedBall
 {
-    public partial class Form2 : Form
+    public partial class StartPage : Form
     {
-        public Form2()
+        private int p;
+        public StartPage()
         {
             InitializeComponent();
             
@@ -25,9 +26,15 @@ namespace SpeedBall
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            if (rbEasy.Checked) p = 3000;
+            if (rbNormal.Checked) p = 2700;
+            if (rbHard.Checked) p = 2000;
+            if (rbInsane.Checked) p = 1000;
+
             this.Hide();
+            GameEngine form1 = new GameEngine(p);
+            form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+            form1.Show();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -40,6 +47,16 @@ namespace SpeedBall
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rbPanel_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void rbEasy_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

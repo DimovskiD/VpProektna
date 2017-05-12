@@ -58,6 +58,8 @@ namespace SpeedBall
 
         }
 
+
+        //treba da se dosredi, ima bug
         public Rectangle checkCollisions(Forms f)
         {
             List<Shape> forms = f.forms;

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using SpeedBall.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Xml.Serialization;
 
 namespace SpeedBall
 {
@@ -17,6 +21,8 @@ namespace SpeedBall
         public int limit { get; set; }
         private int tick;
         private double increment;
+        public List<Score> _highScores = new List<Score>();
+        public Score score;
         public Forms(int height) {
             forms = new List<Shape>();
             h = height;
@@ -25,6 +31,10 @@ namespace SpeedBall
             limit = 20;
             tick = 100;
             increment = 1;
+            score = new Score(0, "ABC");
+
+                  
+
         }
 
         public void addToForms(Shape form) {
@@ -65,6 +75,7 @@ namespace SpeedBall
         internal void updatescore()
         {
             highScore += 1;
+            score.score = highScore;
         }
         internal int updateHighScore()
         {
@@ -97,6 +108,52 @@ namespace SpeedBall
                 level++;
                 limit = limit + (int)(limit / 2);
                 return tick - (int)(10*increment);
+        }
+
+        //Scoring system
+        internal void setHighScore()
+        {
+
+            var serializer = new XmlSerializer(_highScores.GetType());
+
+            object obj;
+            using (var reader = new StreamReader("highscores.xml"))
+            {
+                obj = serializer.Deserialize(reader.BaseStream);
+            }
+            _highScores = (List<Score>)obj;
+         
+            _highScores.Sort(delegate(Score s1, Score s2) { return -1*s1.score.CompareTo(s2.score); });
+            
+            if (_highScores.Count > 5 )
+            {
+                _highScores.RemoveAt(_highScores.Count-1);
+
+            }
+            if (_highScores[4].score<score.score) {
+                NameForm nf = new NameForm();
+                if (nf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    score.ID=nf.name;
+                }
+          
+
+            _highScores.Add(score);
+            _highScores.Sort(delegate(Score s1, Score s2) { return -1 * s1.score.CompareTo(s2.score); });
+
+            if (_highScores.Count > 5)
+            {
+                _highScores.RemoveAt(_highScores.Count - 1);
+
+            }
+
+            
+            using (var writer = new StreamWriter("highscores.xml", false))
+            {
+                serializer.Serialize(writer.BaseStream, _highScores);
+            }
+
+            }
         }
     }
 }

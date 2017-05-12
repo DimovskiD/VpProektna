@@ -1,6 +1,6 @@
 ﻿namespace SpeedBall
 {
-    partial class Form1
+    partial class GameEngine
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.lblTick = new System.Windows.Forms.Label();
             this.lblLimit = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,12 +51,13 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(445, 689);
+            this.btnReset.Location = new System.Drawing.Point(441, 690);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(151, 34);
             this.btnReset.TabIndex = 1;
             this.btnReset.Text = "New Game";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // lblHighScore
             // 
@@ -111,11 +113,22 @@
             this.lblLimit.TabIndex = 6;
             this.lblLimit.Text = "label2";
             // 
-            // Form1
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(441, 650);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(151, 34);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "Back To Menu";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // GameEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 736);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLimit);
             this.Controls.Add(this.lblTick);
             this.Controls.Add(this.lblLevel);
@@ -123,8 +136,9 @@
             this.Controls.Add(this.lblHighScore);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pbGameEngine);
-            this.Name = "Form1";
+            this.Name = "GameEngine";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.pbGameEngine_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).EndInit();
@@ -142,6 +156,7 @@
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Label lblTick;
         private System.Windows.Forms.Label lblLimit;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
