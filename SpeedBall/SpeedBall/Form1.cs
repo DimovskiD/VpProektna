@@ -64,7 +64,7 @@ namespace SpeedBall
             {
                 Rectangle tmp = shape as Rectangle;
                 Random r = new Random();
-                tmp.A.X =(float) r.Next(12, pbGameEngine.Width);
+                //tmp.A.X =(float) r.Next(12, pbGameEngine.Width);
             }
         }
        void PulseRectange_tick(object sender,EventArgs e)
