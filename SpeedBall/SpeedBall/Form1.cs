@@ -18,7 +18,10 @@ namespace SpeedBall
          Timer timer;
          Timer timerMove;
          Timer ColorTimer;
+        Timer PulseRectange;
+        Timer ZigZag;
          private Forms forms;
+        private bool flag;
 
 
         public Form1()
@@ -26,17 +29,26 @@ namespace SpeedBall
 
             InitializeComponent();
 
-            this.DoubleBuffered = true;
+          //  this.DoubleBuffered = true;
       
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
-
+            //pulsing rectangles
+            PulseRectange = new Timer();
+            PulseRectange.Interval = 450;
+            PulseRectange.Tick += PulseRectange_tick;
+            PulseRectange.Start();
             forms = new Forms(pbGameEngine.Height);
-
+            //Timer for color changing
             ColorTimer = new Timer();
             ColorTimer.Interval = 10000;
             ColorTimer.Tick += ColorTimer_tick;
             ColorTimer.Start();
-
+            //timer zigzag
+            ZigZag = new Timer();
+            ZigZag.Interval = 1000;
+            ZigZag.Tick += ZigZag_tick;
+            ZigZag.Start();
+            flag = true;
             timer = new Timer();
             timer.Interval = 3000;
             timer.Tick += timer_Tick;
@@ -46,7 +58,40 @@ namespace SpeedBall
             timer.Start();
             timerMove.Start();
         }
-
+        void ZigZag_tick(object sender,EventArgs e)
+        {
+            foreach(Shape shape in forms.forms)
+            {
+                Rectangle tmp = shape as Rectangle;
+                Random r = new Random();
+                tmp.A.X =(float) r.Next(12, pbGameEngine.Width);
+            }
+        }
+       void PulseRectange_tick(object sender,EventArgs e)
+        {
+            
+            if(flag)
+            {
+                foreach(Shape shape in forms.forms)
+                {
+                    Rectangle tmp = shape as Rectangle;
+                    tmp.w = tmp.w+tmp.RandomBroj;
+                    tmp.h = tmp.h+ tmp.RandomBroj;
+                }
+                flag = false;
+            }
+            else
+            {
+                foreach (Shape shape in forms.forms)
+                {
+                    Rectangle tmp = shape as Rectangle;
+                    tmp.w = tmp.w - tmp.RandomBroj;
+                    tmp.h = tmp.h - tmp.RandomBroj;
+                }
+                flag = true;
+            }
+            Invalidate();
+        }
         void ColorTimer_tick(object sender,EventArgs e)
         {
             topce.changeColor();
@@ -78,6 +123,7 @@ namespace SpeedBall
                 {
                      forms.sameColor();//increment highscore +2
                     forms.removeForm(tmp);//Clean same color rectange
+                    topce.Radius += 1;
                     
                 }
                 else
