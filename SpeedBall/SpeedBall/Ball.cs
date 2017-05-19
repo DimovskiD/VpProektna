@@ -58,6 +58,8 @@ namespace SpeedBall
 
         }
 
+
+        //treba da se dosredi, ima bug
         public Rectangle checkCollisions(Forms f)
         {
             List<Shape> forms = f.forms;
@@ -79,6 +81,13 @@ namespace SpeedBall
             return null;
            
 
+        }
+        public bool checkLimits(int W)
+        {
+            if (X-40 < 1 || X+40 > W)
+                return true;
+            else
+                return false;
         }
 
         

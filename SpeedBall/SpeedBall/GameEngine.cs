@@ -1,18 +1,21 @@
-﻿using System;
+﻿using SpeedBall.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace SpeedBall
 {
-    public partial class Form1 : Form
+    public partial class GameEngine : Form
     {
-
+         int p;
          private Ball topce;
          private Random random;
          Timer timer;
@@ -21,13 +24,29 @@ namespace SpeedBall
          private Forms forms;
 
 
-        public Form1()
+        public GameEngine()
         {
 
             InitializeComponent();
 
             this.DoubleBuffered = true;
-      
+
+            newGame(p);
+        }
+
+        public GameEngine(int pr)
+        {
+
+            InitializeComponent();
+
+            this.DoubleBuffered = true;
+            p = pr;
+            newGame(p);
+        }
+
+
+        public void newGame(int pref=3000) {
+
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
 
             forms = new Forms(pbGameEngine.Height);
@@ -38,7 +57,8 @@ namespace SpeedBall
             ColorTimer.Start();
 
             timer = new Timer();
-            timer.Interval = 3000;
+            if (pref == 0) pref = 3000;
+            timer.Interval = pref;
             timer.Tick += timer_Tick;
             timerMove = new Timer();
             timerMove.Interval = 100;
@@ -59,7 +79,15 @@ namespace SpeedBall
             Rectangle tmp = topce.checkCollisions(forms);
            
             timerMove.Interval = forms.updateHighScore();
+<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.cs
 
+=======
+            //proverka dali topceto e vo dozvolena oblast
+            if(topce.checkLimits(pbGameEngine.Width))
+            {
+                gameOver(true);
+            }
+>>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.cs
             lblTick.Text = timerMove.Interval.ToString();
             lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
@@ -69,16 +97,18 @@ namespace SpeedBall
                 
                 if (tmp.cr.currentColor == topce.current)
                 {
+<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.cs
                      forms.sameColor();
                     forms.removeForm(tmp);
+=======
+                     forms.sameColor();//increment highscore +2
+                    forms.removeForm(tmp);//Clean same color rectange
+>>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.cs
                     
                 }
                 else
                 {
-                    timer.Stop();
-                    ColorTimer.Stop();
-                    timerMove.Stop();
-                    topce.flag = false; //koga se sluci sudir zapri gi site tajmeri i onevozmozi dvizenje na topceto
+                    gameOver(true);
                 }
             }
             else
@@ -93,14 +123,33 @@ namespace SpeedBall
             Invalidate(true);
 
         }
+
+        private async void gameOver(Boolean b)
+        {
+            
+            timer.Stop();
+            ColorTimer.Stop();
+            timerMove.Stop();
+            topce.flag = false;
+            if (b)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(2));
+                this.Hide();
+                HighScore hs = new HighScore();
+                hs.score = forms.highScore;
+                hs.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+                forms.setHighScore();
+                hs.Show();
+            }
+        }
        
 
         void timer_Tick(object sender, EventArgs e)
         {
             random = new Random();
-            int c= RandNumber(12,pbGameEngine.Width-100);
-          
+            int c = RandNumber(12, pbGameEngine.Width - 100);
             forms.addToForms(new Rectangle(c,RandNumber(30,100),RandNumber(30,100)));
+           
             Invalidate();
         }
 
@@ -110,6 +159,10 @@ namespace SpeedBall
             Graphics g = e.Graphics;
 
             g.Clear(Color.White);
+            //krajni granici za topceto
+            Brush b = new SolidBrush(Color.Red);
+            g.FillRectangle(b, pbGameEngine.Width-10, pbGameEngine.Height - 80, 10, 90);
+            g.FillRectangle(b,pbGameEngine.Left, pbGameEngine.Height - 80, 10, 90); 
             topce.Draw(g);
  	        forms.Draw(e.Graphics);
             
@@ -139,11 +192,6 @@ namespace SpeedBall
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
-
-           
-        
-
         public static int RandNumber(int Low, int High)
         {
             Random rndNum = new Random(int.Parse(Guid.NewGuid().ToString().Substring(0, 8), System.Globalization.NumberStyles.HexNumber));
@@ -171,6 +219,26 @@ namespace SpeedBall
         private void lblLevel_Paint(object sender, PaintEventArgs e)
         {
             lblLevel.Text = String.Format("Level {0}",forms.level.ToString());
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.gameOver(false);
+            newGame(p);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.gameOver(false);
+            StartPage form1 = new StartPage();
+            form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+            form1.Show();
         }
     }
 }
