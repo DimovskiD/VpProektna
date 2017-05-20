@@ -35,10 +35,8 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.lblTick = new System.Windows.Forms.Label();
             this.lblLimit = new System.Windows.Forms.Label();
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.Designer.cs
-=======
             this.btnBack = new System.Windows.Forms.Button();
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.Designer.cs
+
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,9 +114,7 @@
             this.lblLimit.TabIndex = 6;
             this.lblLimit.Text = "label2";
             // 
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.Designer.cs
             // Form1
-=======
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(441, 650);
@@ -130,15 +126,15 @@
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // GameEngine
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.Designer.cs
+
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 736);
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.Designer.cs
-=======
+
+
             this.Controls.Add(this.btnBack);
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.Designer.cs
+
             this.Controls.Add(this.lblLimit);
             this.Controls.Add(this.lblTick);
             this.Controls.Add(this.lblLevel);
@@ -166,10 +162,9 @@
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Label lblTick;
         private System.Windows.Forms.Label lblLimit;
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.Designer.cs
-=======
+
         private System.Windows.Forms.Button btnBack;
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.Designer.cs
+
     }
 }
 

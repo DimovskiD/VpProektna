@@ -79,15 +79,13 @@ namespace SpeedBall
             Rectangle tmp = topce.checkCollisions(forms);
            
             timerMove.Interval = forms.updateHighScore();
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.cs
 
-=======
             //proverka dali topceto e vo dozvolena oblast
             if(topce.checkLimits(pbGameEngine.Width))
             {
                 gameOver(true);
             }
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.cs
+
             lblTick.Text = timerMove.Interval.ToString();
             lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
@@ -97,13 +95,10 @@ namespace SpeedBall
                 
                 if (tmp.cr.currentColor == topce.current)
                 {
-<<<<<<< HEAD:SpeedBall/SpeedBall/Form1.cs
                      forms.sameColor();
                     forms.removeForm(tmp);
-=======
                      forms.sameColor();//increment highscore +2
                     forms.removeForm(tmp);//Clean same color rectange
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417:SpeedBall/SpeedBall/GameEngine.cs
                     
                 }
                 else

@@ -12,7 +12,7 @@ namespace SpeedBall
 {
     public partial class StartPage : Form
     {
-        private int p;
+       
         public StartPage()
         {
             InitializeComponent();
@@ -21,20 +21,14 @@ namespace SpeedBall
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (rbEasy.Checked) p = 3000;
-            if (rbNormal.Checked) p = 2700;
-            if (rbHard.Checked) p = 2000;
-            if (rbInsane.Checked) p = 1000;
-
+            Difficulty form4 = new Difficulty();
+            form4.Show();
             this.Hide();
-            GameEngine form1 = new GameEngine(p);
-            form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
-            form1.Show();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)

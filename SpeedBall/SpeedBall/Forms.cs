@@ -75,10 +75,8 @@ namespace SpeedBall
         internal void updatescore()
         {
             highScore += 1;
-<<<<<<< HEAD
-=======
+
             score.score = highScore;
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417
         }
         internal int updateHighScore()
         {
@@ -86,13 +84,11 @@ namespace SpeedBall
            if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
-<<<<<<< HEAD
-=======
+
                 if(tmp<=0)
                 {
                     tmp = 25;
                 }
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417
                 tick = tmp;
                 increment += 1;
                 return tmp;
@@ -114,8 +110,7 @@ namespace SpeedBall
                 level++;
                 limit = limit + (int)(limit / 2);
                 return tick - (int)(10*increment);
-<<<<<<< HEAD
-=======
+
         }
 
         //Scoring system
@@ -162,7 +157,6 @@ namespace SpeedBall
             }
 
             }
->>>>>>> 472a8dc5ef5ddffa093bf25ce46c25b796318417
         }
     }
 }
