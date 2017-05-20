@@ -37,8 +37,8 @@
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnStart.Location = new System.Drawing.Point(201, 344);
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnStart.Location = new System.Drawing.Point(181, 283);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(241, 41);
             this.btnStart.TabIndex = 0;
@@ -48,9 +48,9 @@
             // 
             // btnHelp
             // 
-            this.btnHelp.Location = new System.Drawing.Point(201, 404);
+            this.btnHelp.Location = new System.Drawing.Point(181, 356);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(241, 43);
+            this.btnHelp.Size = new System.Drawing.Size(241, 41);
             this.btnHelp.TabIndex = 1;
             this.btnHelp.Text = "HELP";
             this.btnHelp.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(201, 462);
+            this.btnExit.Location = new System.Drawing.Point(181, 429);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(241, 43);
+            this.btnExit.Size = new System.Drawing.Size(241, 41);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SpeedBall.Properties.Resources.speedball_v01;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 170);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 133);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(600, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
