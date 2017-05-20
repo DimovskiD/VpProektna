@@ -223,17 +223,27 @@ namespace SpeedBall
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            this.gameOver(false);
-            newGame(p);
+          
         }
 
         private void btnBack_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.gameOver(false);
             StartPage form1 = new StartPage();
             form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             form1.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.gameOver(false);
+            newGame(p);
         }
     }
 }

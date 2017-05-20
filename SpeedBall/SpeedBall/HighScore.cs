@@ -31,18 +31,12 @@ namespace SpeedBall
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            StartPage sp = new StartPage();
-            sp.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
-            sp.Show();
+           
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            GameEngine f1 = new GameEngine();
-            f1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
-            f1.Show();
+           
         }
 
         private void HighScore_Paint(object sender, PaintEventArgs e)
@@ -74,6 +68,32 @@ namespace SpeedBall
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartPage sp = new StartPage();
+            sp.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+            sp.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameEngine f1 = new GameEngine();
+            f1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+            f1.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
         }

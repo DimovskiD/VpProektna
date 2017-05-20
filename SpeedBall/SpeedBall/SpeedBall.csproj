@@ -141,6 +141,30 @@
   <ItemGroup>
     <None Include="Resources\start_pain_ball_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_start_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_back_v-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_new-game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_exit_v01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_button_exit_v02.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

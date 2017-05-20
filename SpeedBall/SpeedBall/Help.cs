@@ -19,6 +19,16 @@ namespace SpeedBall
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void Help_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             StartPage form2 = new StartPage();
             form2.Show();
             this.Hide();

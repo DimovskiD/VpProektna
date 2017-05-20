@@ -20,6 +20,11 @@ namespace SpeedBall
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             if (rbEasy.Checked) p = 3000;
             if (rbNormal.Checked) p = 2700;
             if (rbHard.Checked) p = 2000;

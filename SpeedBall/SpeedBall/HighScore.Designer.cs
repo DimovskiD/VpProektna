@@ -30,11 +30,14 @@
         {
             this.lblHighScore = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
-            this.btnNewGame = new System.Windows.Forms.Button();
-            this.btnMainMenu = new System.Windows.Forms.Button();
             this.lblTopScore = new System.Windows.Forms.Label();
             this.lblPreviousBest = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHighScore
@@ -58,28 +61,6 @@
             this.lblText.Text = "Your Score";
             this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnNewGame
-            // 
-            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGame.Location = new System.Drawing.Point(236, 642);
-            this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(183, 63);
-            this.btnNewGame.TabIndex = 2;
-            this.btnNewGame.Text = "New Game";
-            this.btnNewGame.UseVisualStyleBackColor = true;
-            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
-            // 
-            // btnMainMenu
-            // 
-            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMainMenu.Location = new System.Drawing.Point(12, 642);
-            this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(200, 63);
-            this.btnMainMenu.TabIndex = 3;
-            this.btnMainMenu.Text = "Back To Menu";
-            this.btnMainMenu.UseVisualStyleBackColor = true;
-            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
-            // 
             // lblTopScore
             // 
             this.lblTopScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,33 +79,57 @@
             this.lblPreviousBest.Size = new System.Drawing.Size(426, 185);
             this.lblPreviousBest.TabIndex = 5;
             // 
-            // button1
+            // pictureBox2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(440, 642);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 63);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox2.Image = global::SpeedBall.Properties.Resources.start_button_back_v_01;
+            this.pictureBox2.Location = new System.Drawing.Point(33, 635);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(150, 70);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SpeedBall.Properties.Resources.start_button_new_game;
+            this.pictureBox3.Location = new System.Drawing.Point(220, 635);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(150, 70);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::SpeedBall.Properties.Resources.start_button_exit_v02;
+            this.pictureBox4.Location = new System.Drawing.Point(419, 635);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(150, 70);
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // HighScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 736);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(608, 733);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblPreviousBest);
             this.Controls.Add(this.lblTopScore);
-            this.Controls.Add(this.btnMainMenu);
-            this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.lblHighScore);
             this.Name = "HighScore";
             this.Text = "HighScore";
             this.Load += new System.EventHandler(this.HighScore_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.HighScore_Paint);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,10 +138,10 @@
 
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label lblText;
-        private System.Windows.Forms.Button btnNewGame;
-        private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Label lblTopScore;
         private System.Windows.Forms.Label lblPreviousBest;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
