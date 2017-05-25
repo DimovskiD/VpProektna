@@ -141,8 +141,11 @@
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLevel;
+
+
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+
     }
 }
 

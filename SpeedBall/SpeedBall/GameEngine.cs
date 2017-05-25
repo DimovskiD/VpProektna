@@ -22,7 +22,10 @@ namespace SpeedBall
          Timer timer;
          Timer timerMove;
          Timer ColorTimer;
+        Timer PulseRectange;
+        Timer ZigZag;
          private Forms forms;
+        private bool flag;
 
 
         public GameEngine()
@@ -40,6 +43,7 @@ namespace SpeedBall
 
             InitializeComponent();
 
+
             this.DoubleBuffered = true;
             p = pr;
             newGame(p);
@@ -48,15 +52,25 @@ namespace SpeedBall
 
         public void newGame(int pref=3000) {
 
+
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
-
+            //pulsing rectangles
+            PulseRectange = new Timer();
+            PulseRectange.Interval = 450;
+            PulseRectange.Tick += PulseRectange_tick;
+            PulseRectange.Start();
             forms = new Forms(pbGameEngine.Height);
-
+            //Timer for color changing
             ColorTimer = new Timer();
             ColorTimer.Interval = 10000;
             ColorTimer.Tick += ColorTimer_tick;
             ColorTimer.Start();
-
+            //timer zigzag
+            ZigZag = new Timer();
+            ZigZag.Interval = 1000;
+            ZigZag.Tick += ZigZag_tick;
+            ZigZag.Start();
+            flag = true;
             timer = new Timer();
             if (pref == 0) pref = 3000;
             timer.Interval = pref;
@@ -67,7 +81,40 @@ namespace SpeedBall
             timer.Start();
             timerMove.Start();
         }
-
+        void ZigZag_tick(object sender,EventArgs e)
+        {
+            foreach(Shape shape in forms.forms)
+            {
+                Rectangle tmp = shape as Rectangle;
+                Random r = new Random();
+                //tmp.A.X =(float) r.Next(12, pbGameEngine.Width);
+            }
+        }
+       void PulseRectange_tick(object sender,EventArgs e)
+        {
+            
+            if(flag)
+            {
+                foreach(Shape shape in forms.forms)
+                {
+                    Rectangle tmp = shape as Rectangle;
+                    tmp.w = tmp.w+tmp.RandomBroj;
+                    tmp.h = tmp.h+ tmp.RandomBroj;
+                }
+                flag = false;
+            }
+            else
+            {
+                foreach (Shape shape in forms.forms)
+                {
+                    Rectangle tmp = shape as Rectangle;
+                    tmp.w = tmp.w - tmp.RandomBroj;
+                    tmp.h = tmp.h - tmp.RandomBroj;
+                }
+                flag = true;
+            }
+            Invalidate();
+        }
         void ColorTimer_tick(object sender,EventArgs e)
         {
             topce.changeColor();
@@ -84,9 +131,18 @@ namespace SpeedBall
             //proverka dali topceto e vo dozvolena oblast
             if(topce.checkLimits(pbGameEngine.Width))
             {
+
+                timer.Stop();
+                ColorTimer.Stop();
+                timerMove.Stop();
+                topce.flag = false;
+
                 gameOver(true);
+
             }
 
+           
+         
             if (tmp != null)
             {
                 ColorTimer.Stop();
@@ -94,6 +150,14 @@ namespace SpeedBall
                 
                 if (tmp.cr.currentColor == topce.current)
                 {
+
+                     forms.sameColor();//increment highscore +2
+                    forms.removeForm(tmp);//Clean same color rectange
+
+                   
+
+
+
                      forms.sameColor();
                     forms.removeForm(tmp);
                      forms.sameColor();//increment highscore +2

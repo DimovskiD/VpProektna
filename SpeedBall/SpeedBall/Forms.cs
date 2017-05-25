@@ -77,6 +77,7 @@ namespace SpeedBall
             highScore += 1;
 
             score.score = highScore;
+
         }
         internal int updateHighScore()
         {
@@ -84,6 +85,7 @@ namespace SpeedBall
            if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
+
 
                 if(tmp<=0)
                 {
@@ -157,6 +159,7 @@ namespace SpeedBall
             }
 
             }
+
         }
     }
 }

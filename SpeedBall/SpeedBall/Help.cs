@@ -19,6 +19,9 @@ namespace SpeedBall
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+
+           
+
           
         }
 
@@ -29,6 +32,7 @@ namespace SpeedBall
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
 
             this.Hide();
          
