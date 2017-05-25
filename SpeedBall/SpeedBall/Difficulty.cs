@@ -10,41 +10,30 @@ using System.Windows.Forms;
 
 namespace SpeedBall
 {
-    public partial class Help : Form
+    public partial class Difficulty : Form
     {
-        public Help()
+        private int p;
+        public Difficulty()
         {
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
-
-           
-
-          
-        }
-
-        private void Help_Load(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            if (rbEasy.Checked) p = 3000;
+            if (rbNormal.Checked) p = 2700;
+            if (rbHard.Checked) p = 2000;
+            if (rbInsane.Checked) p = 1000;
 
             this.Hide();
-         
-            StartPage form1 = new StartPage();
+            GameEngine form1 = new GameEngine(p);
             form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             form1.Show();
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

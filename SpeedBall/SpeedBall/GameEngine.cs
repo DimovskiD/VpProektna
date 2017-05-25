@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 
+
 namespace SpeedBall
 {
     public partial class GameEngine : Form
@@ -33,7 +34,7 @@ namespace SpeedBall
             InitializeComponent();
 
             this.DoubleBuffered = true;
-
+         
             newGame(p);
         }
 
@@ -126,6 +127,7 @@ namespace SpeedBall
             Rectangle tmp = topce.checkCollisions(forms);
            
             timerMove.Interval = forms.updateHighScore();
+
             //proverka dali topceto e vo dozvolena oblast
             if(topce.checkLimits(pbGameEngine.Width))
             {
@@ -138,6 +140,7 @@ namespace SpeedBall
                 gameOver(true);
 
             }
+
             lblTick.Text = timerMove.Interval.ToString();
             lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
@@ -147,12 +150,18 @@ namespace SpeedBall
                 
                 if (tmp.cr.currentColor == topce.current)
                 {
+
                      forms.sameColor();//increment highscore +2
                     forms.removeForm(tmp);//Clean same color rectange
 
                    
 
 
+
+                     forms.sameColor();
+                    forms.removeForm(tmp);
+                     forms.sameColor();//increment highscore +2
+                    forms.removeForm(tmp);//Clean same color rectange
                     
                 }
                 else
@@ -205,8 +214,15 @@ namespace SpeedBall
 
         private void pbGameEngine_Paint(object sender, PaintEventArgs e)
         {
+            
+           
             Graphics g = e.Graphics;
-
+      
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            // the next two lines of code (not comments) are needed to get the highest 
+            // possible quiality of anti-aliasing. Remove them if you want the image to render faster.
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             g.Clear(Color.White);
             //krajni granici za topceto
             Brush b = new SolidBrush(Color.Red);
@@ -277,17 +293,27 @@ namespace SpeedBall
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            this.gameOver(false);
-            newGame(p);
+          
         }
 
         private void btnBack_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.gameOver(false);
             StartPage form1 = new StartPage();
             form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             form1.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.gameOver(false);
+            newGame(p);
         }
     }
 }

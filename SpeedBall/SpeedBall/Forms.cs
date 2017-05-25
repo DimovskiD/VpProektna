@@ -85,6 +85,8 @@ namespace SpeedBall
            if (highScore >=limit&&highScore<=(limit+limit/2))
             {
                 int tmp= updateLevel();
+
+
                 if(tmp<=0)
                 {
                     tmp = 25;
