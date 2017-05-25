@@ -117,9 +117,7 @@
     <EmbeddedResource Include="StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Help.resx">
-      <DependentUpon>Help.cs</DependentUpon>
-    </EmbeddedResource>
+   
     <EmbeddedResource Include="HighScore.resx">
       <DependentUpon>HighScore.cs</DependentUpon>
     </EmbeddedResource>
