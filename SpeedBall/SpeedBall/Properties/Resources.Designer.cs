@@ -61,21 +61,31 @@ namespace SpeedBall.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon LogoIcon {
+        internal static System.Drawing.Bitmap kriva11 {
             get {
-                object obj = ResourceManager.GetObject("LogoIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("kriva11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SpeedBall {
+        internal static System.Drawing.Bitmap kriva22 {
             get {
-                object obj = ResourceManager.GetObject("SpeedBall", resourceCulture);
+                object obj = ResourceManager.GetObject("kriva22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +115,7 @@ namespace SpeedBall.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap start_button_back_v_01 {
             get {
-                object obj = ResourceManager.GetObject("start_button_back_v-01", resourceCulture);
+                object obj = ResourceManager.GetObject("start_button_back_v_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,7 +165,7 @@ namespace SpeedBall.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap start_button_new_game {
             get {
-                object obj = ResourceManager.GetObject("start_button_new-game", resourceCulture);
+                object obj = ResourceManager.GetObject("start_button_new_game", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

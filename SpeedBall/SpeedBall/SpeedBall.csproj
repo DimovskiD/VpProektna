@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LogoIcon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -175,7 +176,13 @@
     <None Include="Resources\LogoIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LogoIcon.ico" />
+    <None Include="Resources\kriva22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kriva11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
