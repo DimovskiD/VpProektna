@@ -29,9 +29,18 @@ namespace SpeedBall
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            StartPage form2 = new StartPage();
-            form2.Show();
+
             this.Hide();
+         
+            StartPage form1 = new StartPage();
+            form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+            form1.Show();
+           
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

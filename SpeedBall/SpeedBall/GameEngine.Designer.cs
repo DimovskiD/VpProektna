@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameEngine));
             this.pbGameEngine = new System.Windows.Forms.PictureBox();
             this.lblHighScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
-            this.lblTick = new System.Windows.Forms.Label();
-            this.lblLimit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
@@ -88,23 +87,6 @@
             this.lblLevel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblLevel.Paint += new System.Windows.Forms.PaintEventHandler(this.lblLevel_Paint);
             // 
-            // lblTick
-            // 
-            this.lblTick.AutoSize = true;
-            this.lblTick.Location = new System.Drawing.Point(505, 214);
-            this.lblTick.Name = "lblTick";
-            this.lblTick.Size = new System.Drawing.Size(0, 13);
-            this.lblTick.TabIndex = 5;
-            // 
-            // lblLimit
-            // 
-            this.lblLimit.AutoSize = true;
-            this.lblLimit.Location = new System.Drawing.Point(469, 397);
-            this.lblLimit.Name = "lblLimit";
-            this.lblLimit.Size = new System.Drawing.Size(35, 13);
-            this.lblLimit.TabIndex = 6;
-            this.lblLimit.Text = "label2";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -131,18 +113,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 733);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblLimit);
-            this.Controls.Add(this.lblTick);
             this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHighScore);
             this.Controls.Add(this.pbGameEngine);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameEngine";
-            this.Text = "Form1";
+            this.Text = "SpeedBall";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.pbGameEngine_Paint);
@@ -160,8 +141,6 @@
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLevel;
-        private System.Windows.Forms.Label lblTick;
-        private System.Windows.Forms.Label lblLimit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 
+
 namespace SpeedBall
 {
     public partial class GameEngine : Form
@@ -30,7 +31,7 @@ namespace SpeedBall
             InitializeComponent();
 
             this.DoubleBuffered = true;
-
+         
             newGame(p);
         }
 
@@ -86,8 +87,6 @@ namespace SpeedBall
                 gameOver(true);
             }
 
-            lblTick.Text = timerMove.Interval.ToString();
-            lblLimit.Text = forms.limit.ToString();
             if (tmp != null)
             {
                 ColorTimer.Stop();
@@ -151,8 +150,15 @@ namespace SpeedBall
 
         private void pbGameEngine_Paint(object sender, PaintEventArgs e)
         {
+            
+           
             Graphics g = e.Graphics;
-
+      
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            // the next two lines of code (not comments) are needed to get the highest 
+            // possible quiality of anti-aliasing. Remove them if you want the image to render faster.
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             g.Clear(Color.White);
             //krajni granici za topceto
             Brush b = new SolidBrush(Color.Red);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Difficulty));
             this.rbEasy = new System.Windows.Forms.RadioButton();
             this.rbNormal = new System.Windows.Forms.RadioButton();
             this.rbHard = new System.Windows.Forms.RadioButton();
@@ -40,7 +41,7 @@
             // rbEasy
             // 
             this.rbEasy.AutoSize = true;
-            this.rbEasy.Location = new System.Drawing.Point(165, 90);
+            this.rbEasy.Location = new System.Drawing.Point(165, 84);
             this.rbEasy.Name = "rbEasy";
             this.rbEasy.Size = new System.Drawing.Size(48, 17);
             this.rbEasy.TabIndex = 0;
@@ -51,7 +52,7 @@
             // rbNormal
             // 
             this.rbNormal.AutoSize = true;
-            this.rbNormal.Location = new System.Drawing.Point(165, 124);
+            this.rbNormal.Location = new System.Drawing.Point(165, 116);
             this.rbNormal.Name = "rbNormal";
             this.rbNormal.Size = new System.Drawing.Size(58, 17);
             this.rbNormal.TabIndex = 1;
@@ -62,7 +63,7 @@
             // rbHard
             // 
             this.rbHard.AutoSize = true;
-            this.rbHard.Location = new System.Drawing.Point(165, 156);
+            this.rbHard.Location = new System.Drawing.Point(165, 148);
             this.rbHard.Name = "rbHard";
             this.rbHard.Size = new System.Drawing.Size(48, 17);
             this.rbHard.TabIndex = 2;
@@ -73,9 +74,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 56);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(122, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "GAME DIFFICULTY";
             // 
@@ -104,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(414, 363);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rbInsane);
@@ -111,6 +114,7 @@
             this.Controls.Add(this.rbHard);
             this.Controls.Add(this.rbNormal);
             this.Controls.Add(this.rbEasy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Difficulty";
             this.Text = "Difficulty";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

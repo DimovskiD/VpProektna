@@ -38,8 +38,8 @@ namespace SpeedBall
 
         public override void  Draw(Graphics g)
         {
-            g.FillEllipse(b, X - Radius ,Y - 2 * Radius - 40, Radius * 2, Radius * 2);     
-         
+            g.FillEllipse(b, X - Radius ,Y - 2 * Radius - 40, Radius * 2, Radius * 2);
+                   
         }
         public void ChangeDirection(Direction nasoka)
         {
@@ -59,29 +59,21 @@ namespace SpeedBall
         }
 
 
-        //treba da se dosredi, ima bug
-        public Rectangle checkCollisions(Forms f)
-        {
+        public Rectangle checkCollisions(Forms f) {
             List<Shape> forms = f.forms;
-            float y = Y - 2*Radius - 40; //najgorna tocka na topceto
-            float y2 = Y - 40; //najdolna tocka na topceto
+
             foreach (Shape form in forms) {
                 Rectangle tmp = form as Rectangle;
+                float DeltaX = X - Math.Max(tmp.A.X, Math.Min(X,tmp.A.X + tmp.w));
+                float DeltaY = (Y-Radius-40) - Math.Max(tmp.A.Y, Math.Min(Y-Radius-40, tmp.A.Y + tmp.h));
 
-                int x1 = tmp.A.X;
-                int y1 = tmp.A.Y+tmp.h;
-                int x2 = tmp.A.X + tmp.w;
+                if ((DeltaX * DeltaX + DeltaY * DeltaY) < (Radius * Radius))
+                    return tmp;
 
-                if (X >= x1 && X <= x2)
-                {
-                    if (y <= y1&&tmp.A.Y<=y2) return tmp;
-                }
-                
             }
             return null;
-           
-
         }
+
         public bool checkLimits(int W)
         {
             if (X-40 < 1 || X+40 > W)

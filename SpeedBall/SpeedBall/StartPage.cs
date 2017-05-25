@@ -58,16 +58,25 @@ namespace SpeedBall
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Difficulty form4 = new Difficulty();
-            form4.Show();
+
             this.Hide();
+            Difficulty hs = new Difficulty();
+       
+            hs.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+           
+            hs.Show();
+           
+         
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Help form3 = new Help();
-            form3.Show();
             this.Hide();
+            Help form3 = new Help();
+            form3.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+
+            form3.Show();
+           
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
