@@ -141,8 +141,8 @@ namespace SpeedBall
 
             }
 
-            lblTick.Text = timerMove.Interval.ToString();
-            lblLimit.Text = forms.limit.ToString();
+           
+         
             if (tmp != null)
             {
                 ColorTimer.Stop();

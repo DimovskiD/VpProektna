@@ -33,16 +33,8 @@
             this.lblHighScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
-
-            this.lblTick = new System.Windows.Forms.Label();
-            this.lblLimit = new System.Windows.Forms.Label();
-
-            this.btnBack = new System.Windows.Forms.Button();
-
-
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -106,14 +98,7 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-
-
-            // Form1
-
-            // btnBack
-
             // pictureBox2
-
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::SpeedBall.Properties.Resources.start_button_new_game;
@@ -125,19 +110,6 @@
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // GameEngine
-
-
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 736);
-
-
-            this.Controls.Add(this.btnBack);
-
-            this.Controls.Add(this.lblLimit);
-            this.Controls.Add(this.lblTick);
-
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,7 +117,6 @@
             this.ClientSize = new System.Drawing.Size(608, 733);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-
             this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHighScore);
@@ -170,11 +141,6 @@
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLevel;
-
-        private System.Windows.Forms.Label lblTick;
-        private System.Windows.Forms.Label lblLimit;
-
-        private System.Windows.Forms.Button btnBack;
 
 
         private System.Windows.Forms.PictureBox pictureBox1;
