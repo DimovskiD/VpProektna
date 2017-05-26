@@ -40,5 +40,16 @@ namespace SpeedBall
         {
             A = new Point(A.X, A.Y + 10);
         }
+        public void ZigZagMove(bool t)
+        {
+            if (t)
+            { 
+            this.A =new Point( this.A.X+30,this.A.Y);               
+                    }
+            else
+            {
+                this.A = new Point(this.A.X - 30, this.A.Y);
+            }
+        }
     }
 }

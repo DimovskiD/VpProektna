@@ -54,7 +54,7 @@ namespace SpeedBall
             List<Score> _entities = new List<Score>();
             var serializer = new XmlSerializer(_entities.GetType());
             object obj;
-            using (var reader = new StreamReader("highscores.xml"))
+            using (var reader = new StreamReader("../../../SpeedBall/Resources/topScore.txt"))
             {
                 obj = serializer.Deserialize(reader.BaseStream);
             }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SpeedBall
 {
@@ -36,6 +37,7 @@ namespace SpeedBall
                   
 
         }
+
 
         public void addToForms(Shape form) {
             forms.Add(form);
@@ -122,7 +124,7 @@ namespace SpeedBall
             var serializer = new XmlSerializer(_highScores.GetType());
 
             object obj;
-            using (var reader = new StreamReader("highscores.xml"))
+            using (var reader = new StreamReader("../../../SpeedBall/Resources/topScore.txt"))
             {
                 obj = serializer.Deserialize(reader.BaseStream);
             }
@@ -153,7 +155,7 @@ namespace SpeedBall
             }
 
             
-            using (var writer = new StreamWriter("highscores.xml", false))
+            using (var writer = new StreamWriter("../../../SpeedBall/Resources/topScore.txt",false))
             {
                 serializer.Serialize(writer.BaseStream, _highScores);
             }
@@ -161,5 +163,13 @@ namespace SpeedBall
             }
 
         }
-    }
+        public void ZigZagMove(bool t)
+        {
+            foreach (Shape shape in forms)
+            {
+                Rectangle tmp = shape as Rectangle;
+                tmp.ZigZagMove(t);
+            }
+        }
+}
 }
