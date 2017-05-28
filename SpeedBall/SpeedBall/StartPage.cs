@@ -65,6 +65,7 @@ namespace SpeedBall
             hs.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
            
             hs.Show();
+            
            
          
         }

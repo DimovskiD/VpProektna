@@ -43,6 +43,7 @@ namespace SpeedBall
         private void loadHighScore()
         {
 
+
           /*  List<Score> _entities = new List<Score>();
             var serializer = new XmlSerializer(_entities.GetType());
             object obj;
@@ -52,7 +53,8 @@ namespace SpeedBall
             }
             _entities = (List<Score>)obj;
 
-            /* List<Score> _entities = new List<Score>();
+
+             List<Score> _entities = new List<Score>();
              var serializer = new XmlSerializer(_entities.GetType());
              object obj;
              using (var reader = new StreamReader("highscores.xml"))
@@ -61,12 +63,21 @@ namespace SpeedBall
              }
              _entities = (List<Score>)obj;
 
+            List<Score> _entities = new List<Score>();
+            var serializer = new XmlSerializer(_entities.GetType());
+            object obj;
+            using (var reader = new StreamReader("../../../SpeedBall/Resources/topScore.txt"))
+            {
+                obj = serializer.Deserialize(reader.BaseStream);
+            }
+            _entities = (List<Score>)obj;
+
 
              for (int i = 0; i < _entities.Count; i++)
              {
 
                  lblPreviousBest.Text += String.Format("{0}. {1}, {2} \n", i+1, _entities[i].score, _entities[i].ID);
-             } */*/
+             } */
             UsersScene korisnici = new UsersScene();
             using(FileStream fileStream=new FileStream("topScores.txt",FileMode.Open))
             {
@@ -99,7 +110,7 @@ namespace SpeedBall
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            GameEngine f1 = new GameEngine();
+            Difficulty f1 = new Difficulty();
             f1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             f1.Show();
         }

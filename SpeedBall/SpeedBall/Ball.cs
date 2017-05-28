@@ -32,6 +32,7 @@ namespace SpeedBall
             current= ColorBall.randomColor();
             b = new SolidBrush(current);
 
+
             flag = true;
         }
 
