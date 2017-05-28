@@ -125,6 +125,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(254, 20);
             this.tbName.TabIndex = 7;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // pictureBox2

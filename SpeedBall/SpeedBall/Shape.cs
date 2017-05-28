@@ -10,7 +10,7 @@ namespace SpeedBall
     [Serializable]
      abstract class Shape
     {
-       public Point A { get; set; }
+        public Point A { get; set; }
        
 
 

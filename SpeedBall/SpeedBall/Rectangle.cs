@@ -30,6 +30,7 @@ namespace SpeedBall
             b = cr.ChangeColor(this, b);
         }
 
+       
 
         public override void Draw(Graphics g)
         {

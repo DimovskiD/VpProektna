@@ -52,7 +52,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 40);
             this.label2.TabIndex = 1;
-            this.label2.Text = "You are among our best players!";
+            this.label2.Text = "Congratulations! \r\nYou have set a new record!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnDone
@@ -61,18 +61,18 @@
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(146, 23);
             this.btnDone.TabIndex = 3;
-            this.btnDone.Text = "Done!";
+            this.btnDone.Text = "Continue";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(111, 58);
+            this.lbName.Location = new System.Drawing.Point(14, 58);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(0, 16);
+            this.lbName.Size = new System.Drawing.Size(258, 30);
             this.lbName.TabIndex = 4;
+            this.lbName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // NameForm
             // 
@@ -90,7 +90,6 @@
             this.Text = "You Are The Best!";
             this.Load += new System.EventHandler(this.NameForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

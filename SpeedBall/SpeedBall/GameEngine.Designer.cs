@@ -121,15 +121,17 @@
             this.lbUsersScore.Name = "lbUsersScore";
             this.lbUsersScore.Size = new System.Drawing.Size(168, 292);
             this.lbUsersScore.TabIndex = 10;
+            this.lbUsersScore.SelectedIndexChanged += new System.EventHandler(this.lbUsersScore_SelectedIndexChanged);
             // 
             // lbPassed
             // 
-            this.lbPassed.AutoSize = true;
+            this.lbPassed.BackColor = System.Drawing.Color.Transparent;
             this.lbPassed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassed.Location = new System.Drawing.Point(170, 313);
+            this.lbPassed.Location = new System.Drawing.Point(12, 22);
             this.lbPassed.Name = "lbPassed";
-            this.lbPassed.Size = new System.Drawing.Size(0, 24);
+            this.lbPassed.Size = new System.Drawing.Size(392, 65);
             this.lbPassed.TabIndex = 11;
+            this.lbPassed.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbPassed.Visible = false;
             // 
             // label2

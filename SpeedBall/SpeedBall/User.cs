@@ -23,7 +23,7 @@ namespace SpeedBall
         }
         public override string ToString()
         {
-            return String.Format("{0}-{1}", Name, Score);
+            return String.Format("{0} - {1}", Name, Score);
         }
     }
 }

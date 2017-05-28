@@ -18,29 +18,23 @@ namespace SpeedBall
 {
     public partial class GameEngine : Form
     {
-         int p;
-         private Ball topce;
-         private Random random;
-         Timer timer;
-         Timer timerMove;
-         Timer ColorTimer;
-        Timer PulseRectange;
-        Timer ZigZag;
+        int p;
+        private Ball topce;
+        private Random random;
+        Timer timer;
+        Timer timerMove;
+        Timer ColorTimer;
+        //Timer PulseRectange;
+        //Timer ZigZag;
 
 
         Timer Check;
 
-        bool t;
+//        bool t;
 
-
-      
-
-     
-
-
-         private Forms forms;
-        private bool flag;
-       new string Name;
+        private Forms forms;
+        //private bool flag;
+        new string Name;
         UsersScene korisnici;
         User korisnik;
         bool firsttime;
@@ -77,6 +71,7 @@ namespace SpeedBall
                 {
                     IFormatter formater = new BinaryFormatter();
                     korisnici = (UsersScene)formater.Deserialize(fileStream);
+                    korisnici.Sort();
                 }
             }
             catch (Exception ex)
@@ -89,6 +84,7 @@ namespace SpeedBall
             foreach(User u in korisnici.lista)
             {
                 lbUsersScore.Items.Add(u);
+
             }
         }
         public void newGame(int pref=3000) {
@@ -105,25 +101,26 @@ namespace SpeedBall
             Check.Start();
             flagName = true;
             firsttime = true;
-            //pulsing rectangles
+            /*pulsing rectangles
             PulseRectange = new Timer();
             PulseRectange.Interval = 450;
             PulseRectange.Tick += PulseRectange_tick;
             PulseRectange.Start();
+             * */
             forms = new Forms(pbGameEngine.Height);
             //Timer for color changing
             ColorTimer = new Timer();
             ColorTimer.Interval = 10000;
             ColorTimer.Tick += ColorTimer_tick;
             ColorTimer.Start();
-            //timer zigzag
+            /*timer zigzag
             ZigZag = new Timer();
             ZigZag.Interval = 1000;
             ZigZag.Tick += ZigZag_tick;
-            ZigZag.Start();
-            flag = true;
+            ZigZag.Start(); */
+            //flag = true;
             timer = new Timer();
-            t = true;
+            //t = true;
             if (pref == 0) pref = 3000;
             timer.Interval = pref;
             timer.Tick += timer_Tick;
@@ -175,7 +172,7 @@ namespace SpeedBall
                 prevName = currName;
             }
         }
-        void ZigZag_tick(object sender,EventArgs e)
+       /* void ZigZag_tick(object sender,EventArgs e)
         {
             if (t)
             {
@@ -213,6 +210,7 @@ namespace SpeedBall
             }
             Invalidate();
         }
+        * */
         void ColorTimer_tick(object sender,EventArgs e)
         {
             topce.changeColor();
@@ -223,8 +221,28 @@ namespace SpeedBall
         {
             forms.move();
             Rectangle tmp = topce.checkCollisions(forms);
-           
+            int lvl = forms.level;
             timerMove.Interval = forms.updateHighScore();
+            if (forms.level != lvl)
+            {
+
+                if (timer.Interval > 500)
+                {
+                    if (p == 3000)
+                        timer.Interval -= 300;
+                    if (p == 2700)
+                        timer.Interval -= 220;
+                    if (p == 2000)
+                        timer.Interval -= 150;
+                    if (p == 1300)
+                        timer.Interval -= 90;
+                
+                
+
+                
+                
+                }
+            }
 
             //proverka dali topceto e vo dozvolena oblast
             if(topce.checkLimits(pbGameEngine.Width))
@@ -249,16 +267,11 @@ namespace SpeedBall
                 if (tmp.cr.currentColor == topce.current)
                 {
 
-                     forms.sameColor();//increment highscore +2
+                    forms.sameColor();//increment highscore +2
                     forms.removeForm(tmp);//Clean same color rectange
-
-                   
-
-
-
-                     forms.sameColor();
+                    forms.sameColor();
                     forms.removeForm(tmp);
-                     forms.sameColor();//increment highscore +2
+                    forms.sameColor();//increment highscore +2
                     forms.removeForm(tmp);//Clean same color rectange
                     
                 }
@@ -281,6 +294,7 @@ namespace SpeedBall
         }
         public void serialize()
         {
+            korisnici.Sort();
             using (FileStream fileStream = new FileStream("topScores.txt", FileMode.OpenOrCreate))
             {
                 IFormatter formater = new BinaryFormatter();
@@ -435,6 +449,11 @@ namespace SpeedBall
         {
             this.gameOver(false);
             newGame(p);
+        }
+
+        private void lbUsersScore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

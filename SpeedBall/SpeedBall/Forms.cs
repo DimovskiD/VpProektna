@@ -110,15 +110,14 @@ namespace SpeedBall
         public int updateLevel()
         {
             
-                //treba da se dosredi logikata na povisokite leveli
-                
+               
                 level++;
                 limit = limit + (int)(limit / 2);
                 return tick - (int)(10*increment);
 
         }
 
-        //Scoring system
+        /*Scoring system
         internal void setHighScore()
         {
 
@@ -172,5 +171,6 @@ namespace SpeedBall
                 tmp.ZigZagMove(t);
             }
         }
+         * */
 }
 }

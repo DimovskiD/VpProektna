@@ -28,29 +28,32 @@ namespace SpeedBall
         {
          if(tbName.Text.Trim().Length==0)
             {
-                
-                errorProvider1.SetError(tbName,"Enter your name!");
                 e.Cancel = true;
+                errorProvider1.SetError(tbName,"Enter your name!");
+                
 
             }
             else
             {
                 errorProvider1.SetError(tbName,null);
-                e.Cancel = false;
+               
             }
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (rbEasy.Checked) p = 3000;
-            if (rbNormal.Checked) p = 2700;
-            if (rbHard.Checked) p = 2000;
-            if (rbInsane.Checked) p = 1000;
-            Name = tbName.Text;
-            this.Hide();
-            GameEngine form1 = new GameEngine(p,Name);
-            form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
-            form1.Show();
+            if (ValidateChildren())
+            {
+                if (rbEasy.Checked) p = 3000;
+                if (rbNormal.Checked) p = 2700;
+                if (rbHard.Checked) p = 2000;
+                if (rbInsane.Checked) p = 1300;
+                Name = tbName.Text;
+                this.Hide();
+                GameEngine form1 = new GameEngine(p, Name);
+                form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
+                form1.Show();
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -62,5 +65,12 @@ namespace SpeedBall
         {
             
         }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+     
     }
 }
