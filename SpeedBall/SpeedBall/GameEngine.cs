@@ -33,9 +33,9 @@ namespace SpeedBall
         bool t;
 
 
-        bool t;
+      
 
-        Timer Check;
+     
 
 
          private Forms forms;
@@ -132,7 +132,7 @@ namespace SpeedBall
             timerMove.Tick += timerMove_Tick;
             timer.Start();
             timerMove.Start();
-         korisnik= new User(Name);
+            korisnik= new User(Name);
         }
         void Check_tick(object sender,EventArgs e)
         {
@@ -302,9 +302,22 @@ namespace SpeedBall
                 hs.score = forms.highScore;
                 hs.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
                 korisnik.SetScore(forms.highScore);                                        //   forms.setHighScore();
+                if (korisnici.lista.Count >= 3)
+                {
+                    if (forms.highScore > korisnici.maxScore())
+                    {
+                        NameForm nf = new NameForm();
+
+                        nf.name = korisnik.Name;
+                        if (nf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+
+                        }
+
+                    }
+                }   
                 korisnici.AddUser(korisnik);
                 serialize();
-
                 hs.Show();
             }
         }

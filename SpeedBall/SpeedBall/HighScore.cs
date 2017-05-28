@@ -110,7 +110,7 @@ namespace SpeedBall
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            GameEngine f1 = new GameEngine();
+            Difficulty f1 = new Difficulty();
             f1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             f1.Show();
         }

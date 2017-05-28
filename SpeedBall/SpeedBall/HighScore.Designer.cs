@@ -65,7 +65,7 @@
             // lblTopScore
             // 
             this.lblTopScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTopScore.Location = new System.Drawing.Point(91, 332);
+            this.lblTopScore.Location = new System.Drawing.Point(92, 317);
             this.lblTopScore.Name = "lblTopScore";
             this.lblTopScore.Size = new System.Drawing.Size(426, 73);
             this.lblTopScore.TabIndex = 4;
@@ -107,7 +107,7 @@
             // 
             this.lbUsers.AutoSize = true;
             this.lbUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lbUsers.Location = new System.Drawing.Point(292, 392);
+            this.lbUsers.Location = new System.Drawing.Point(203, 399);
             this.lbUsers.Name = "lbUsers";
             this.lbUsers.Size = new System.Drawing.Size(0, 26);
             this.lbUsers.TabIndex = 11;

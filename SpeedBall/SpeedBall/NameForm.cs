@@ -13,7 +13,7 @@ namespace SpeedBall
     public partial class NameForm : Form
     {
 
-        public String name;
+        public String name { get; set; }
         public NameForm()
         {
             InitializeComponent();
@@ -21,12 +21,12 @@ namespace SpeedBall
 
         private void NameForm_Load(object sender, EventArgs e)
         {
-
+            lbName.Text = "Congratulations \n" + name;
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            name = tbName.Text;
+            
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             Close();
         }

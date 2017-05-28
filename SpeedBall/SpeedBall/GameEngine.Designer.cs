@@ -37,6 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbUsersScore = new System.Windows.Forms.ListBox();
             this.lbPassed = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -113,20 +114,33 @@
             // 
             // lbUsersScore
             // 
+            this.lbUsersScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsersScore.FormattingEnabled = true;
-            this.lbUsersScore.Location = new System.Drawing.Point(424, 178);
+            this.lbUsersScore.ItemHeight = 16;
+            this.lbUsersScore.Location = new System.Drawing.Point(428, 236);
             this.lbUsersScore.Name = "lbUsersScore";
-            this.lbUsersScore.Size = new System.Drawing.Size(168, 303);
+            this.lbUsersScore.Size = new System.Drawing.Size(168, 292);
             this.lbUsersScore.TabIndex = 10;
             // 
             // lbPassed
             // 
             this.lbPassed.AutoSize = true;
+            this.lbPassed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassed.Location = new System.Drawing.Point(170, 313);
             this.lbPassed.Name = "lbPassed";
-            this.lbPassed.Size = new System.Drawing.Size(0, 13);
+            this.lbPassed.Size = new System.Drawing.Size(0, 24);
             this.lbPassed.TabIndex = 11;
             this.lbPassed.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(424, 209);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "All Users Score";
             // 
             // GameEngine
             // 
@@ -134,6 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 733);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbPassed);
             this.Controls.Add(this.lbUsersScore);
             this.Controls.Add(this.pictureBox2);
@@ -168,6 +183,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ListBox lbUsersScore;
         private System.Windows.Forms.Label lbPassed;
+        private System.Windows.Forms.Label label2;
     }
 }
 

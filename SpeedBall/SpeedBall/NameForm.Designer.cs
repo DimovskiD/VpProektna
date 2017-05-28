@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NameForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.btnDone = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,19 +48,12 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Location = new System.Drawing.Point(12, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 40);
             this.label2.TabIndex = 1;
-            this.label2.Text = "You are among our best players! Please enter your name:";
+            this.label2.Text = "You are among our best players!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(17, 112);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(255, 20);
-            this.tbName.TabIndex = 2;
             // 
             // btnDone
             // 
@@ -72,6 +65,15 @@
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(111, 58);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(0, 16);
+            this.lbName.TabIndex = 4;
+            // 
             // NameForm
             // 
             this.AcceptButton = this.btnDone;
@@ -79,13 +81,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(284, 176);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.btnDone);
-            this.Controls.Add(this.tbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NameForm";
-            this.Text = "Your Name";
+            this.Text = "You Are The Best!";
             this.Load += new System.EventHandler(this.NameForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,7 +98,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Label lbName;
     }
 }

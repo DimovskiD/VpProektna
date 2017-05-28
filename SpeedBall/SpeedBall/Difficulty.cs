@@ -21,9 +21,25 @@ namespace SpeedBall
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            tbName_Validating(sender,(CancelEventArgs) e);
             
         }
+        private void tbName_Validating(object sender, CancelEventArgs e)
+        {
+         if(tbName.Text.Trim().Length==0)
+            {
+                
+                errorProvider1.SetError(tbName,"Enter your name!");
+                e.Cancel = true;
 
+            }
+            else
+            {
+                errorProvider1.SetError(tbName,null);
+                e.Cancel = false;
+            }
+
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (rbEasy.Checked) p = 3000;
@@ -40,6 +56,11 @@ namespace SpeedBall
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Difficulty_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
