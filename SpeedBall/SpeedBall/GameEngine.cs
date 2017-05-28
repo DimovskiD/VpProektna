@@ -25,15 +25,15 @@ namespace SpeedBall
         Timer timerMove;
         Timer ColorTimer;
         //Timer PulseRectange;
-        //Timer ZigZag;
+        Timer ZigZag;
 
 
         Timer Check;
 
-//        bool t;
+      bool t;
 
         private Forms forms;
-        //private bool flag;
+        private bool flag;
         new string Name;
         UsersScene korisnici;
         User korisnik;
@@ -113,14 +113,14 @@ namespace SpeedBall
             ColorTimer.Interval = 10000;
             ColorTimer.Tick += ColorTimer_tick;
             ColorTimer.Start();
-            /*timer zigzag
+           // timer zigzag
             ZigZag = new Timer();
-            ZigZag.Interval = 1000;
+            ZigZag.Interval = 750;
             ZigZag.Tick += ZigZag_tick;
-            ZigZag.Start(); */
-            //flag = true;
+            ZigZag.Start(); 
+            flag = true;
             timer = new Timer();
-            //t = true;
+            t = true;
             if (pref == 0) pref = 3000;
             timer.Interval = pref;
             timer.Tick += timer_Tick;
@@ -172,10 +172,12 @@ namespace SpeedBall
                 prevName = currName;
             }
         }
-       /* void ZigZag_tick(object sender,EventArgs e)
+       void ZigZag_tick(object sender,EventArgs e)
         {
+            forms.CheckLimit();
             if (t)
             {
+                
                 forms.ZigZagMove(t);
                 t = false;
             }
@@ -185,6 +187,7 @@ namespace SpeedBall
                 t = true;
             }
         }
+        /* 
        void PulseRectange_tick(object sender,EventArgs e)
         {
             

@@ -21,7 +21,7 @@ namespace SpeedBall
 
         private void NameForm_Load(object sender, EventArgs e)
         {
-            lbName.Text = "Congratulations \n" + name;
+            lbName.Text = name;
         }
 
         private void btnDone_Click(object sender, EventArgs e)

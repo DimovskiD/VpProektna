@@ -13,6 +13,7 @@ namespace SpeedBall
         public int w { get; set; }
         public int h { get; set; }
         public Brush b { get; set; }
+        public bool zigzag { get; set; }
         public ColorControler cr { get; set; }
         public int RandomBroj{get;set;}
         public Rectangle(int c,int width, int height)
@@ -24,6 +25,7 @@ namespace SpeedBall
             Random r = new Random();
             RandomBroj = r.Next(40);
             w = width;
+            zigzag = false;
             h = height;
             b = new SolidBrush(Color.Green);
             cr = new ColorControler();
@@ -41,6 +43,12 @@ namespace SpeedBall
         public override void Move()
         {
             A = new Point(A.X, A.Y + 10);
+        }
+        public void checkLimits()
+        {
+            if (A.X>60 && A.Y <w-50)
+                zigzag = true;
+
         }
         public void ZigZagMove(bool t)
         {

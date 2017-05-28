@@ -162,15 +162,28 @@ namespace SpeedBall
 
             }
 
-        }
+        } * */
         public void ZigZagMove(bool t)
         {
             foreach (Shape shape in forms)
             {
                 Rectangle tmp = shape as Rectangle;
-                tmp.ZigZagMove(t);
+                if (tmp.zigzag)
+                {
+                    tmp.ZigZagMove(t);
+                }
+                
+            }
+
+        }
+        public void CheckLimit()
+        {
+            foreach(Shape shape in forms)
+            {
+                Rectangle tmp = shape as Rectangle;
+                tmp.checkLimits();
             }
         }
-         * */
+        
 }
 }
