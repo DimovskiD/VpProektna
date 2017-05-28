@@ -27,9 +27,16 @@ namespace SpeedBall
         Timer PulseRectange;
         Timer ZigZag;
 
+
         Timer Check;
 
         bool t;
+
+
+        bool t;
+
+        Timer Check;
+
 
          private Forms forms;
         private bool flag;
