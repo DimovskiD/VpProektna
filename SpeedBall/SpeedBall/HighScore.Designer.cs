@@ -32,10 +32,10 @@
             this.lblHighScore = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
             this.lblTopScore = new System.Windows.Forms.Label();
-            this.lblPreviousBest = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lbUsers = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,14 +72,6 @@
             this.lblTopScore.Text = "Top Scores";
             this.lblTopScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblPreviousBest
-            // 
-            this.lblPreviousBest.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreviousBest.Location = new System.Drawing.Point(92, 405);
-            this.lblPreviousBest.Name = "lblPreviousBest";
-            this.lblPreviousBest.Size = new System.Drawing.Size(426, 185);
-            this.lblPreviousBest.TabIndex = 5;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SpeedBall.Properties.Resources.start_button_back_v_01;
@@ -111,16 +103,26 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // lbUsers
+            // 
+            this.lbUsers.AutoSize = true;
+            this.lbUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lbUsers.Location = new System.Drawing.Point(292, 392);
+            this.lbUsers.Name = "lbUsers";
+            this.lbUsers.Size = new System.Drawing.Size(0, 26);
+            this.lbUsers.TabIndex = 11;
+            this.lbUsers.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // HighScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 733);
+            this.Controls.Add(this.lbUsers);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblPreviousBest);
             this.Controls.Add(this.lblTopScore);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.lblHighScore);
@@ -133,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,9 +144,9 @@
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label lblText;
         private System.Windows.Forms.Label lblTopScore;
-        private System.Windows.Forms.Label lblPreviousBest;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lbUsers;
     }
 }

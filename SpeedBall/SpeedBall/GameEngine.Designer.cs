@@ -35,6 +35,8 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbUsersScore = new System.Windows.Forms.ListBox();
+            this.lbPassed = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameEngine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -109,12 +111,31 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // lbUsersScore
+            // 
+            this.lbUsersScore.FormattingEnabled = true;
+            this.lbUsersScore.Location = new System.Drawing.Point(424, 178);
+            this.lbUsersScore.Name = "lbUsersScore";
+            this.lbUsersScore.Size = new System.Drawing.Size(168, 303);
+            this.lbUsersScore.TabIndex = 10;
+            // 
+            // lbPassed
+            // 
+            this.lbPassed.AutoSize = true;
+            this.lbPassed.Location = new System.Drawing.Point(170, 313);
+            this.lbPassed.Name = "lbPassed";
+            this.lbPassed.Size = new System.Drawing.Size(0, 13);
+            this.lbPassed.TabIndex = 11;
+            this.lbPassed.Visible = false;
+            // 
             // GameEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 733);
+            this.Controls.Add(this.lbPassed);
+            this.Controls.Add(this.lbUsersScore);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblLevel);
@@ -145,7 +166,8 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-
+        private System.Windows.Forms.ListBox lbUsersScore;
+        private System.Windows.Forms.Label lbPassed;
     }
 }
 

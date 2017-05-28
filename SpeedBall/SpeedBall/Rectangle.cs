@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpeedBall
 {
+    [Serializable]
     class Rectangle : Shape
     {
         public int w { get; set; }

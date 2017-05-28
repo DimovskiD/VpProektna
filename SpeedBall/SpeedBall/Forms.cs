@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SpeedBall
 {
+    [Serializable]
     class Forms
     {
         public List<Shape> forms { get; set; }
