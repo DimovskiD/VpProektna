@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.IO;
-using SpeedBall.Properties;
-using System.Reflection;
-using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SpeedBall
 {
@@ -51,20 +42,29 @@ namespace SpeedBall
 
         private void loadHighScore()
         {
-            List<Score> _entities = new List<Score>();
-            var serializer = new XmlSerializer(_entities.GetType());
-            object obj;
-            using (var reader = new StreamReader("highscores.xml"))
+            /* List<Score> _entities = new List<Score>();
+             var serializer = new XmlSerializer(_entities.GetType());
+             object obj;
+             using (var reader = new StreamReader("highscores.xml"))
+             {
+                 obj = serializer.Deserialize(reader.BaseStream);
+             }
+             _entities = (List<Score>)obj;
+
+             for (int i = 0; i < _entities.Count; i++)
+             {
+
+                 lblPreviousBest.Text += String.Format("{0}. {1}, {2} \n", i+1, _entities[i].score, _entities[i].ID);
+             } */
+            UsersScene korisnici = new UsersScene();
+            using(FileStream fileStream=new FileStream("topScores.txt",FileMode.Open))
             {
-                obj = serializer.Deserialize(reader.BaseStream);
+                IFormatter formater = new BinaryFormatter();
+                korisnici = (UsersScene)formater.Deserialize(fileStream);
             }
-            _entities = (List<Score>)obj;
-
-            for (int i = 0; i < _entities.Count; i++)
-            {
-
-                lblPreviousBest.Text += String.Format("{0}. {1}, {2} \n", i+1, _entities[i].score, _entities[i].ID);
-            }     
+            korisnici.Sort();
+            lbUsers.Text = korisnici.ToString();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,6 +96,11 @@ namespace SpeedBall
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

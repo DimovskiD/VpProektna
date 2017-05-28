@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace SpeedBall
@@ -24,9 +26,16 @@ namespace SpeedBall
          Timer ColorTimer;
         Timer PulseRectange;
         Timer ZigZag;
+        Timer Check;
          private Forms forms;
         private bool flag;
-
+       new string Name;
+        UsersScene korisnici;
+        User korisnik;
+        bool firsttime;
+        string prevName;
+        string currName;
+        bool flagName;
 
         public GameEngine()
         {
@@ -34,26 +43,57 @@ namespace SpeedBall
             InitializeComponent();
 
             this.DoubleBuffered = true;
-         
+            
             newGame(p);
         }
 
-        public GameEngine(int pr)
+        public GameEngine(int pr,string name)
         {
 
             InitializeComponent();
 
-
+            Name = name;
             this.DoubleBuffered = true;
             p = pr;
             newGame(p);
         }
 
-
+        public void loadUsers()
+        {
+            try
+            {
+                using (FileStream fileStream = new FileStream("topScores.txt", FileMode.Open))
+                {
+                    IFormatter formater = new BinaryFormatter();
+                    korisnici = (UsersScene)formater.Deserialize(fileStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                korisnici = new UsersScene();
+            }
+        }
+        public void fillUsers()
+        {
+            foreach(User u in korisnici.lista)
+            {
+                lbUsersScore.Items.Add(u);
+            }
+        }
         public void newGame(int pref=3000) {
 
 
             topce = new SpeedBall.Ball(pbGameEngine.Width / 2, pbGameEngine.Height);
+            
+            loadUsers();
+            fillUsers();
+            //Check if passed some of Users
+            Check = new Timer();
+            Check.Interval = 2000;
+            Check.Tick += Check_tick;
+            Check.Start();
+            flagName = true;
+            firsttime = true;
             //pulsing rectangles
             PulseRectange = new Timer();
             PulseRectange.Interval = 450;
@@ -80,6 +120,48 @@ namespace SpeedBall
             timerMove.Tick += timerMove_Tick;
             timer.Start();
             timerMove.Start();
+         korisnik= new User(Name);
+        }
+        void Check_tick(object sender,EventArgs e)
+        {
+            if(forms.highScore>korisnici.maxScore())
+            {
+                lbPassed.Text = "";
+                lbPassed.Visible = false;
+               
+
+                
+            }
+            
+            if (firsttime)
+            {
+                currName = korisnici.Checking(forms.highScore);
+                if (currName != null)
+                {
+                    if (flagName)
+                    {
+                        lbPassed.Text = "Cograts you passed \n" + currName;
+                        lbPassed.Visible = true;
+                        firsttime = false;
+                        flagName = false;
+                    }
+                    else
+                    {
+                        if(currName!=prevName)
+                        {
+                            lbPassed.Text = "Cograts you passed \n" + currName;
+                            lbPassed.Visible = true;
+                            firsttime = false;
+                        }
+                    }
+                }
+            }
+            else 
+            {
+                lbPassed.Visible =false;
+                firsttime = true;
+                prevName = currName;
+            }
         }
         void ZigZag_tick(object sender,EventArgs e)
         {
@@ -181,7 +263,14 @@ namespace SpeedBall
             Invalidate(true);
 
         }
-
+        public void serialize()
+        {
+            using (FileStream fileStream = new FileStream("topScores.txt", FileMode.OpenOrCreate))
+            {
+                IFormatter formater = new BinaryFormatter();
+                formater.Serialize(fileStream, korisnici);
+            }
+        }
         private async void gameOver(Boolean b)
         {
             
@@ -196,7 +285,10 @@ namespace SpeedBall
                 HighScore hs = new HighScore();
                 hs.score = forms.highScore;
                 hs.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
-                forms.setHighScore();
+                korisnik.SetScore(forms.highScore);                                        //   forms.setHighScore();
+                korisnici.AddUser(korisnik);
+                serialize();
+
                 hs.Show();
             }
         }

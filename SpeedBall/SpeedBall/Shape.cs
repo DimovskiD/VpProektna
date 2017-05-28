@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace SpeedBall
 {
+    [Serializable]
      abstract class Shape
     {
        public Point A { get; set; }

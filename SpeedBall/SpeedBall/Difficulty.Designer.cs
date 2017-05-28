@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rbInsane = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,12 +103,20 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(65, 226);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(283, 20);
+            this.tbName.TabIndex = 7;
+            // 
             // Difficulty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(414, 363);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rbInsane);
             this.Controls.Add(this.label1);
@@ -131,5 +140,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbInsane;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbName;
     }
 }

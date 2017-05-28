@@ -13,6 +13,7 @@ namespace SpeedBall
     public partial class Difficulty : Form
     {
         private int p;
+      new string Name;
         public Difficulty()
         {
             InitializeComponent();
@@ -29,9 +30,9 @@ namespace SpeedBall
             if (rbNormal.Checked) p = 2700;
             if (rbHard.Checked) p = 2000;
             if (rbInsane.Checked) p = 1000;
-
+            Name = tbName.Text;
             this.Hide();
-            GameEngine form1 = new GameEngine(p);
+            GameEngine form1 = new GameEngine(p,Name);
             form1.Closed += (s, args) => this.Close(); //koga se iskluci vtorata forma se isklucuva i aplikacijata
             form1.Show();
         }

@@ -12,6 +12,7 @@ using System.Xml.Serialization;
 
 namespace SpeedBall
 {
+    [Serializable]
     class Forms
     {
         public List<Shape> forms { get; set; }

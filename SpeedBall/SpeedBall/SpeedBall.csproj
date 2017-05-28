@@ -93,18 +93,18 @@
     <Compile Include="Help.Designer.cs">
       <DependentUpon>Help.cs</DependentUpon>
     </Compile>
-
     <Compile Include="HighScore.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HighScore.Designer.cs">
       <DependentUpon>HighScore.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UsersScene.cs" />
     <EmbeddedResource Include="Difficulty.resx">
       <DependentUpon>Difficulty.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,7 +117,6 @@
     <EmbeddedResource Include="StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>
     </EmbeddedResource>
-   
     <EmbeddedResource Include="HighScore.resx">
       <DependentUpon>HighScore.cs</DependentUpon>
     </EmbeddedResource>
