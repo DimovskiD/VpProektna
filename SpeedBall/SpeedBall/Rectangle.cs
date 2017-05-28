@@ -46,7 +46,7 @@ namespace SpeedBall
         }
         public void checkLimits()
         {
-            if (A.X>60 && A.Y <w-50)
+            if (A.X>60 && A.Y <415-50)
                 zigzag = true;
 
         }
