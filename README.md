@@ -8,6 +8,8 @@ SpeedBall е многу едностана игра чија цел е да ги
 
 
 На почетниот прозорец (Слика бр. 1) имаме можност да избереме едно од трите копчиња: 
+
+
 ![alt text](https://github.com/DimovskiD/VpProektna/blob/master/SpeedBall/SpeedBall/Resources/start_button_start_01.png) за стартување на самата игра;
 
 
