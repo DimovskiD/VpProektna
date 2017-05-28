@@ -63,6 +63,36 @@ namespace SpeedBall.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kriva11 {
+            get {
+                object obj = ResourceManager.GetObject("kriva11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kriva22 {
+            get {
+                object obj = ResourceManager.GetObject("kriva22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap speedball_v01 {
             get {
                 object obj = ResourceManager.GetObject("speedball_v01", resourceCulture);
@@ -85,7 +115,7 @@ namespace SpeedBall.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap start_button_back_v_01 {
             get {
-                object obj = ResourceManager.GetObject("start_button_back_v-01", resourceCulture);
+                object obj = ResourceManager.GetObject("start_button_back_v_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,7 +165,7 @@ namespace SpeedBall.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap start_button_new_game {
             get {
-                object obj = ResourceManager.GetObject("start_button_new-game", resourceCulture);
+                object obj = ResourceManager.GetObject("start_button_new_game", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -157,15 +187,6 @@ namespace SpeedBall.Properties {
             get {
                 object obj = ResourceManager.GetObject("start_pain_ball_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string topScore {
-            get {
-                return ResourceManager.GetString("topScore", resourceCulture);
             }
         }
     }

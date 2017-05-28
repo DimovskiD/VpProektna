@@ -42,6 +42,7 @@ namespace SpeedBall
 
         private void loadHighScore()
         {
+
             /* List<Score> _entities = new List<Score>();
              var serializer = new XmlSerializer(_entities.GetType());
              object obj;
@@ -50,6 +51,16 @@ namespace SpeedBall
                  obj = serializer.Deserialize(reader.BaseStream);
              }
              _entities = (List<Score>)obj;
+
+            List<Score> _entities = new List<Score>();
+            var serializer = new XmlSerializer(_entities.GetType());
+            object obj;
+            using (var reader = new StreamReader("../../../SpeedBall/Resources/topScore.txt"))
+            {
+                obj = serializer.Deserialize(reader.BaseStream);
+            }
+            _entities = (List<Score>)obj;
+
 
              for (int i = 0; i < _entities.Count; i++)
              {

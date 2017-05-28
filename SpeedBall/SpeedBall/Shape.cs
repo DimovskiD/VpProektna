@@ -16,5 +16,6 @@ namespace SpeedBall
 
         abstract public void Draw(Graphics g);
         abstract public void Move();
+        
     }
 }

@@ -25,8 +25,14 @@ namespace SpeedBall
             this.X = X;
             this.Y = Y;
             Radius = 20;
+
             current = ColorBall.randomColor();
             b = new SolidBrush(current);
+
+            current= ColorBall.randomColor();
+            b = new SolidBrush(current);
+           
+
             flag = true;
         }
 

@@ -26,7 +26,11 @@ namespace SpeedBall
          Timer ColorTimer;
         Timer PulseRectange;
         Timer ZigZag;
+
         Timer Check;
+
+        bool t;
+
          private Forms forms;
         private bool flag;
        new string Name;
@@ -112,6 +116,7 @@ namespace SpeedBall
             ZigZag.Start();
             flag = true;
             timer = new Timer();
+            t = true;
             if (pref == 0) pref = 3000;
             timer.Interval = pref;
             timer.Tick += timer_Tick;
@@ -165,11 +170,15 @@ namespace SpeedBall
         }
         void ZigZag_tick(object sender,EventArgs e)
         {
-            foreach(Shape shape in forms.forms)
+            if (t)
             {
-                Rectangle tmp = shape as Rectangle;
-                Random r = new Random();
-                //tmp.A.X =(float) r.Next(12, pbGameEngine.Width);
+                forms.ZigZagMove(t);
+                t = false;
+            }
+            else
+            {
+                forms.ZigZagMove(t);
+                t = true;
             }
         }
        void PulseRectange_tick(object sender,EventArgs e)
