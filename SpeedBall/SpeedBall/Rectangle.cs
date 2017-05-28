@@ -36,7 +36,7 @@ namespace SpeedBall
 
         public override void Draw(Graphics g)
         {
-            g.FillRectangle(b, A.X, A.Y, w, h);
+            g.FillRectangle(b,A.X,A.Y,w,h);
             
         }
 
@@ -46,7 +46,7 @@ namespace SpeedBall
         }
         public void checkLimits()
         {
-            if (A.X>60 && A.Y <415-50)
+            if ((A.X>60 && A.Y <415-70)&&(A.X+w+50)<415)
                 zigzag = true;
 
         }
